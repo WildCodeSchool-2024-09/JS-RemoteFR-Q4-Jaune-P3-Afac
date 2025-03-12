@@ -7,7 +7,7 @@ const browse: RequestHandler = async (req, res, next) => {
   try {
     const artworks = await artworkRepository.readAll();
 
-    res.sendStatus(200).json(artworks);
+    res.status(200).json(artworks);
   } catch (err) {
     next(err);
   }
