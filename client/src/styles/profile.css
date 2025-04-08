@@ -28,6 +28,7 @@
 .profile-header > img {
   object-fit: cover;
   min-width: 10vw;
+  max-width: 70vw;
 }
 
 .profile-header-text {
