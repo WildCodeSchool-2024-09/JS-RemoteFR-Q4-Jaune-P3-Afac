@@ -29,6 +29,7 @@ interface AuthProps {
     website: string;
   }) => void;
 }
+
 const authContext = createContext<AuthProps | null>(null);
 
 export function AuthProvider({ children }: AuthProviderProps) {

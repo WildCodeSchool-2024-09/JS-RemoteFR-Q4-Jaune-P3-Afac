@@ -55,7 +55,6 @@ export default function NewPost({ category }: { category: Category[] }) {
       });
       const modal = document.getElementById("modal") as HTMLDialogElement;
       modal?.close();
-      console.info("coucou");
       revalidate.revalidate();
     } catch (error) {
       console.error(error);
