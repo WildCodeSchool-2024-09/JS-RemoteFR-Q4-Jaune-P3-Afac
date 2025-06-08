@@ -5,8 +5,6 @@ CREATE TABLE user (
   email VARCHAR(255) NOT NULL UNIQUE,
   hashed_password VARCHAR(255) NOT NULL,
   picture VARCHAR(255) DEFAULT "default_pfp.jpg",
-  following INT DEFAULT 0,
-  followers INT DEFAULT 0, 
   bio TEXT DEFAULT NULL,
   portfolio VARCHAR(255) DEFAULT NULL,
   website VARCHAR(255) DEFAULT NULL,
@@ -15,7 +13,7 @@ CREATE TABLE user (
 
 -- le mdp est mdpAFAC@91
 INSERT INTO user(username, email, hashed_password, picture, bio, portfolio, website, is_admin) VALUES
-("Admin", "test@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "025.png", "Développeur passionné par le web et les nouvelles technologies.", "https://johndoe.dev", "https://instagram.com/johndoe", TRUE),
+("Admin", "test@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "025.png", "Développeur passionné par le web et les nouvelles technologies.", "https://www.linkedin.com/in/clm-andreani", "https://itclmt-portfolio.vercel.app", TRUE),
 ("Ezio", "ezio@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "chapeaunoir.jpg", "Je suis un artiste qui aime aussi bien les peintures que la danse sous toutes ses formes", "https://johndoe.dev", "https://instagram.com/johndoe", FALSE),
 ("Judith", "judith@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "femme2.jpg", "Artiste amateur, je suis passionnée de street d'art ", "https://johndoe.dev", "https://instagram.com/johndoe", FALSE),
 ("Pierre", "pierre@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "homme2.jpg", "Je suis un grand passionné de danse ", "https://johndoe.dev", "https://instagram.com/johndoe", FALSE),
@@ -31,9 +29,6 @@ INSERT INTO user(username, email, hashed_password, picture, bio, portfolio, webs
 ("Lucas", "lucas@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "lucas.jpg", "Passionné de photographie de rue et de portraits urbains.", "https://johndoe.dev", "https://instagram.com/johndoe", FALSE),
 ("Lisa", "lisa@test.fr", "$argon2id$v=19$m=19456,t=2,p=1$Yme1gkTMwKkLvuW6KJwRLg$qUpg5FadAxfwrS1pTA8wHiEEq/7TvRBY/Yi8y4BT2J0", "lisa.jpg", "Ici c'est Marseille bébé !", "https://johndoe.dev", "https://instagram.com/johndoe", FALSE);
 
-
-
-
 CREATE TABLE category (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(255) NOT NULL
@@ -47,7 +42,6 @@ INSERT INTO category (name) VALUES
   ('Street Art'),
   ('Sculpture'),
   ('Autres');
-
 
 CREATE TABLE artwork (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -72,7 +66,7 @@ INSERT INTO artwork(title, description, picture, category_id, user_id, created_a
 ("La plage", "Il fait chaud !", "beach-composition-with-blank-space-text_24837-240.avif", 3, 9, '2023-08-30 10:25:00'),
 ("Jolie madame", "Photo de jolie madame", "portrait-personne-assistant-soiree-musique-techno-dynamique_23-2150551577.avif", 3, 6, '2023-09-14 12:35:00'),
 ("Les couleurs nutritifs", "Miam Miam", "buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.avif", 3, 2, '2023-10-22 14:15:00'),
-("Masque de Carnval", "Un magnifique masque de carnaval sur fond jaune", "masque-elegant-perles-carnaval-mystere-plat_23-2148756051.avif", 3, 2, '2023-11-05 09:45:00'),
+("Masque de Carnaval", "Un magnifique masque de carnaval sur fond jaune", "masque-elegant-perles-carnaval-mystere-plat_23-2148756051.avif", 3, 2, '2023-11-05 09:45:00'),
 ("Server", "Data center", "salle-hub-racks-serveurs-donnees-centre-informatique-big-data-interieur-bleu-pour-hebergement-materiel-stockage_90220-1033.avif", 3, 3, '2023-11-28 16:50:00'),
 ("Foret", "Jolie foret", "arbres-qui-poussent-dans-foret_1048944-30368869.avif", 3, 4, '2023-12-10 11:20:00'),
 ("Ecureuil", "Un petit ecureuil qui prend la pose", "close-up-ecureuil-poteau-bois_1048944-30370286.avif", 3, 5, '2023-12-24 13:30:00'),
@@ -124,7 +118,6 @@ INSERT INTO artwork(title, description, picture, category_id, user_id, created_a
 ("Un chat", "Sculpture d'un chat", "chat.avif", 6, 9, '2025-03-13 10:50:25'),
 ("Rock'n Roll", "Une enceinte et une guitare", "enceinterock.avif", 2, 8, '2025-03-23 21:00:00');
 
-
 CREATE TABLE event (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   title VARCHAR(255) NOT NULL,
@@ -155,7 +148,6 @@ INSERT INTO event(title, description, picture, start_date, end_date, location) V
 ("Exposition SUPP1", "Exposition d'art abstrait", "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "2025-03-11", "2025-03-21", "Lille"),
 ("Exposition SUPP4", "Exposition d'art abstrait", "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "2025-03-11", "2025-03-20", "Lille"),
 ("Exposition d'art 6", "Exposition d'art abstrait", "https://images.pexels.com/photos/1193743/pexels-photo-1193743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "2025-03-11", "2025-03-19", "Lille");
-
 
 INSERT INTO event_artwork(event_id, artwork_id) VALUES
 (1, 1),
@@ -208,7 +200,6 @@ INSERT INTO likes(user_id, artwork_id) VALUES
 (11, 39),
 (12, 39),
 (7, 39);
-
 
 CREATE TABLE follows (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

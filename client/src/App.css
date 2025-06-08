@@ -23,7 +23,7 @@
 }
 
 html {
-  background-color: var(--background-color) !important;
+  background-color: var(--background-color);
   height: 100%;
 }
 

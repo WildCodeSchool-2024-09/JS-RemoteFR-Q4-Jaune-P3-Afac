@@ -16,6 +16,7 @@ export default function PicturesHome({ artworks }: Artworks) {
             <img
               src={`${baseUrl}/uploads/${artwork.picture}`}
               alt={artwork.description}
+              loading="lazy"
             />
           </Link>
         ))
