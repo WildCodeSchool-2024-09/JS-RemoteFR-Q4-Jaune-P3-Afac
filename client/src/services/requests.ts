@@ -157,7 +157,6 @@ const postArtwork = async (formData: FormData) => {
 
     return response.data;
   } catch (error) {
-    alert("Vous devez être connecté");
     console.error(error);
     throw new Error("Failed to create artwork");
   }

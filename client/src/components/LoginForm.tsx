@@ -25,13 +25,17 @@ export default function LoginForm() {
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const navigate = useNavigate();
+
   const { setRole, setCurrentUser } = useAuth();
+
   const currentIcon = showPassword ? icon[0].visible : icon[0].notVisible;
+
   const [credentials, setCredentials] = useState<CredentialsTypes>({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   const handleChangeCredentials = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({
@@ -44,7 +48,6 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await postLogin(credentials);
-      console.info(response);
       setRole(response.is_admin ? "admin" : "user");
       setCurrentUser({
         id: response.user_id,

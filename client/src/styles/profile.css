@@ -27,7 +27,8 @@
 
 .profile-header > img {
   object-fit: cover;
-  max-width: 10rem;
+  min-width: 10vw;
+  max-width: 70vw;
 }
 
 .profile-header-text {
@@ -238,10 +239,6 @@
     flex-direction: row;
   }
 
-  .profile-header > img {
-    max-width: 15rem;
-  }
-
   .left-part {
     max-width: 46%;
   }
@@ -249,8 +246,8 @@
   .profile {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
-    max-width: 100%;
   }
 
   .bio {
@@ -278,7 +275,7 @@
 
   .profile-header > img {
     object-fit: cover;
-    max-width: 32%;
+    width: 20vw;
   }
 
   .biography {
@@ -338,12 +335,21 @@
     font-size: 2.4vw;
   }
 
+  .profile-header-text {
+    padding-left: 5vw;
+  }
+
   .username-followers {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
     width: 100%;
-    padding-left: 3vw;
+    margin: 0.5rem;
+  }
+
+  .clickable {
+    padding: 0;
   }
 
   .left-part.editing {
